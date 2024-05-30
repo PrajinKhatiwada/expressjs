@@ -4,16 +4,16 @@ const app = express()
 const port = 3000
 
  //creating middleware
-const myMiddleware=(req,res,next)=>{
-    console.log(req)
-    next()    //next function
-}
-app.use(express.static(path.join(__dirname,"public")))  //serving static folder and files
+//const myMiddleware=(req,res,next)=>{
+  //  console.log(req)
+    //next()    //next function
+//}
+//app.use(express.static(path.join(__dirname,"public")))  //serving static folder and files
 //using mdiddleware
-app.use(myMiddleware)
-// app.get('/', (req, res) => {
-  //res.send('Hello everyone ')
-//})
+//app.use(myMiddleware)
+ app.get('/hello/:name', (req, res) => {
+  res.send('Hello everyone '+req.params.name)
+})
 //app.get('/about', (req, res) => {
    
     //res.sendFile(path.join(__dirname,'index.html'))  //accesing index.html file through server
